@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model, discriminant_analysis, cross_validation
 
+
 def load_data():
     diabetes = datasets.load_diabetes()
     return cross_validation.train_test_split(diabetes.data, diabetes.target, test_size=0.25, random_state=0)
@@ -16,7 +17,6 @@ def test_LinearRegression(*data):
     plt.plot(reg.predict(x_test))
     plt.plot(y_test)
     plt.show()
-
 
 def test_Ridge(*data):
     x_train, x_test, y_train, y_test = data
@@ -46,7 +46,8 @@ def test_Ridge_alpha(*data):
     ax.set_title("ridge")
     plt.show()
 
+
 x_train, x_test,y_train, y_test = load_data()
-#test_LinearRegression(x_train, x_test, y_train, y_test)   
-#test_Ridge(x_train, x_test, y_train, y_test)
+test_LinearRegression(x_train, x_test, y_train, y_test)   
+test_Ridge(x_train, x_test, y_train, y_test)
 test_Ridge_alpha(x_train, x_test, y_train, y_test)
